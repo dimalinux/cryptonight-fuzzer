@@ -1,0 +1,16 @@
+[package]
+name = "cryptonight-fuzzer"
+version = "0.1.0"
+edition = "2021"
+description = "Validates that the CryptoNight hash function behaves the same in C and Rust."
+
+[dependencies]
+thiserror = "1"
+hex = "0.4"
+cryptonight-c = { git = "https://github.com/Cuprate/cuprate", rev = "2291a9679593825ca7ee815a35619f17918bb9de", package = "cuprate-cryptonight" }
+cryptonight-rust = { git = "https://github.com/Cuprate/cuprate", rev = "refs/pull/271/head", package = "cuprate-cryptonight" }
+rand = "0.8.5"
+
+# Add if you want symbol information when profiling the release build
+#[profile.release]
+#debug = 1
