@@ -48,7 +48,8 @@ fn main() {
 
         #[allow(clippy::modulo_one)]
         if n % PRINT_INTERVAL == 0 {
-            println!("N: {n}, rust: {r_time:.3?}, c: {c_time:.3?} [over {HASHES_PER_PRINT} hashes]");
+            let ratio = r_time.as_secs_f64() / c_time.as_secs_f64();
+            println!("N: {n}, rust: {r_time:.3?}, c: {c_time:.3?} (ratio {ratio:.2?}) [over {HASHES_PER_PRINT} hashes]");
             r_time = Duration::ZERO;
             c_time = Duration::ZERO;
         }
